@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @itsjayeshrathi
-- 👀 I’m interested in Game Development
-- 🌱 I’m currently learning C++ and Python
+- 👀 I’m interested in Web Development, Problem Solving
+- 🌱 I’m currently learning C++ and javaScript
 - 📫 How to reach me rathijayesh@outlook.com
 
 <!---
