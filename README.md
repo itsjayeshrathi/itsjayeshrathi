@@ -21,11 +21,4 @@
 
 ---
 
-### Let’s Connect!  
-- [GitHub](https://github.com/itsjayeshrathi) (obviously, you’re already here 🚀)  
-- [LinkedIn](https://linkedin.com/in/itsjayeshrathi) _(replace with your link)_  
-- Wanna chat? Shoot me an email: **your.email@example.com** _(replace with yours)_  
-
----
-
 _"Music, games, code, and coffee—what else do you need?"_  
