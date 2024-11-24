@@ -1,4 +1,4 @@
-# Hey there! 👋 I'm Jayesh Rathi (@itsjayeshrathi)
+# Hey there! 
 
 ### A Little About Me 🌟  
 - I'm all about **Competitive Programming**—I've solved **1000+ problems** and counting. 🧩  
