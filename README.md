@@ -1,4 +1,3 @@
 # jayesh@mark-II:~$ whoami
-software engineer  
-go / rust / c++ — backend, systems, infra stuff  
+software engineer
 mostly lost, still moving.
