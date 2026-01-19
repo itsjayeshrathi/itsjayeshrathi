@@ -1,3 +1,3 @@
-# jayesh@mark-II:~$ whoami
-software engineer \n
-mostly lost, still moving.
+jayesh@mark-II:~$ whoami
+software engineer
+mostly lost, still moving
