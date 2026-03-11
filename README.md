@@ -4,6 +4,6 @@ software engineer
 mostly lost, still moving forward
 
 jayesh@mark-II:~$ monkeytype
-wpm: <WPM>
-accuracy: <ACC>%
+wpm: null
+accuracy: null%
 ```
