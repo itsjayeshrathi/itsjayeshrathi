@@ -5,38 +5,44 @@ on:
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   update-stats:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Fetch stats
+      - name: Fetch Monkeytype Stats
         run: |
-          curl -H "Authorization: Bearer ${{ secrets.MONKEYTYPE_API_KEY }}" \
-          https://api.monkeytype.com/users/stats > stats.json
+          curl -H "Authorization: ApeKey ${{ secrets.MONKEYTYPE_API_KEY }}" \
+          https://api.monkeytype.com/users/personalBests?mode=time > stats.json
+
+      - name: Debug API response
+        run: cat stats.json
 
       - name: Parse stats
         run: |
-          WPM=$(jq '.data.personalBests.time["60"][0].wpm' stats.json)
-          ACC=$(jq '.data.personalBests.time["60"][0].acc' stats.json)
+          WPM=$(jq '.data."60"[0].wpm // "null"' stats.json | tr -d '"')
+          ACC=$(jq '.data."60"[0].acc // "null"' stats.json | tr -d '"')
 
           echo "WPM=$WPM" >> $GITHUB_ENV
           echo "ACC=$ACC" >> $GITHUB_ENV
 
+      - name: Debug parsed values
+        run: |
+          echo "WPM is: $WPM"
+          echo "ACC is: $ACC"
+
       - name: Update README
         run: |
-          sed -i "s/<WPM>/$WPM/g" README.md
-          sed -i "s/<ACC>/$ACC/g" README.md
+          sed -i "s/wpm: .*/wpm: ${WPM}/" README.md
+          sed -i "s/accuracy: .*/accuracy: ${ACC}%/" README.md
 
-      - name: Commit
+      - name: Commit changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add README.md
-          git commit -m "Update Monkeytype stats" || exit 0
+          git commit -m "Updated Monkeytype stats [skip ci]" || exit 0
           git push
