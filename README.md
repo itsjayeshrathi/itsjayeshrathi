@@ -1,3 +1,9 @@
-jayesh@mark-II:~$ whoami <br>
-software engineer <br>
-mostly lost, still moving
+```bash
+jayesh@mark-II:~$ whoami
+software engineer
+mostly lost, still moving forward
+
+jayesh@mark-II:~$ monkeytype
+wpm: <WPM>
+accuracy: <ACC>%
+```
