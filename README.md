@@ -1,9 +1,9 @@
-```bash
-jayesh@mark-II:~$ whoami
+```zsh
+~ whoami
 software engineer
 mostly lost, still moving forward
 
-jayesh@mark-II:~$ monkeytype
+~ monkeytype
 wpm: null
 accuracy: null%
 ```
