@@ -1,0 +1,40 @@
+name: Update Monkeytype Stats
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Fetch Monkeytype Stats
+        run: |
+          curl -H "Authorization: ${{ secrets.MONKEYTYPE_API_KEY }}" \
+          https://api.monkeytype.com/users/stats > stats.json
+
+      - name: Parse stats
+        run: |
+          WPM=$(jq '.data.personalBests.time."60"[0].wpm' stats.json)
+          ACC=$(jq '.data.personalBests.time."60"[0].acc' stats.json)
+
+          echo "WPM=$WPM" >> $GITHUB_ENV
+          echo "ACC=$ACC" >> $GITHUB_ENV
+
+      - name: Update README
+        run: |
+          sed -i "s/WPM:.*/WPM: $WPM/" README.md
+          sed -i "s/Accuracy:.*/Accuracy: $ACC%/" README.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Updated Monkeytype stats" || exit 0
+          git push
