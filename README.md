@@ -4,6 +4,6 @@ software engineer
 mostly lost, still moving forward
 
 ~ monkeytype
-wpm: null
-accuracy: null%
+wpm: 107.39
+accuracy: 94.43%
 ```
