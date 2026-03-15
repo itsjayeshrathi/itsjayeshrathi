@@ -7,5 +7,10 @@ mostly lost, still moving forward
 wpm: 107.39
 accuracy: 94.43%
 
-~ exit
+~ chess
+elo: 1500 (+/-)
+
+~ letterboxd
+logged: 543 (+)
+
 ```
